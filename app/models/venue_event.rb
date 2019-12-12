@@ -1,0 +1,2 @@
+class VenueEvent < ApplicationRecord
+end
