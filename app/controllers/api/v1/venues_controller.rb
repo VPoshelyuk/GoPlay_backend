@@ -1,2 +1,2 @@
-class VenuesController < ApplicationController
+class Api::V1::VenuesController < ApplicationController
 end
