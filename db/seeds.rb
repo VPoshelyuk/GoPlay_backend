@@ -116,3 +116,51 @@ user_activities = UserActivity.create([
     { user_id: 5 , activity_id: 4 },
     { user_id: 5 , activity_id: 6 }
 ])
+
+groups = Group.create([
+        {
+        name: "Brooklyn Soccer Club",
+        location: "New York, NY",
+        logo_path: "https://fish1964.files.wordpress.com/2013/06/20130624_205040.jpg",
+        description: "Siblings: None
+        Family: You were raised by your mother and father.
+        Lifestyle: Comfortable. Grew up in a large house
+        Childhood: You had several friends, and your childhood was generally a happy one.",
+        activity_id: 1},
+        {
+        name: "Upper East Side Soccer Fans",
+        location: "New York, NY",
+        logo_path: "https://www.snopes.com/tachyon/2016/12/shutterstock_426279466.jpg?resize=865,452&quality=65",
+        description: "Siblings: None
+        Family: You were raised by your mother and father.
+        Lifestyle: Comfortable. Grew up in a large house
+        Childhood: You had several friends, and your childhood was generally a happy one.",
+        activity_id: 1},
+        {
+        name: "Voleyball ♥️",
+        location: "Miami, FL",
+        logo_path: "https://coloradopreps.com/wp-content/uploads/2018/10/Volleyball-Logo-5.jpg",
+        description: "Siblings: None
+        Family: You were raised by your mother and father.
+        Lifestyle: Comfortable. Grew up in a large house
+        Childhood: You had several friends, and your childhood was generally a happy one.",
+        activity_id: 2},
+        {
+        name: "Basketball 🏀",
+        location: "New York, NY",
+        logo_path: "https://x.pac-12.com/sites/default/files/styles/homepage_featured/public/BallThruHoop2016_01_1.JPG?itok=Yg439KTn",
+        description: "Siblings: None
+        Family: You were raised by your mother and father.
+        Lifestyle: Comfortable. Grew up in a large house
+        Childhood: You had several friends, and your childhood was generally a happy one.",
+        activity_id: 3},
+        {
+        name: "Random group",
+        location: "Los Angeles, CA",
+        logo_path: "http://tenrandomfacts.com/wp-content/uploads/2016/06/Field-Hockey.jpg",
+        description: "Siblings: None
+        Family: You were raised by your mother and father.
+        Lifestyle: Comfortable. Grew up in a large house
+        Childhood: You had several friends, and your childhood was generally a happy one.",
+        activity_id: 5}
+])

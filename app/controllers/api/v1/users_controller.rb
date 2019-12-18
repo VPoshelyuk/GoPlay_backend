@@ -1,4 +1,9 @@
 class Api::V1::UsersController < ApplicationController
+    def index
+        users = User.all
+        render json: {users: UserSerializer.new(users)}
+    end
+
     def show
         user = User.find(params[:id])
         token = encode_token(user.id)
