@@ -10,7 +10,7 @@ users = User.create([
         username: "slavaP",
         first_name: "Slava",
         last_name: "Pashaliuk",
-        profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UNBUFCFEH-d881e5172e1e-512",
+        # profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UNBUFCFEH-d881e5172e1e-512",
         email: "slava@slava.me",
         phone_number: "9293098458",
         location: "New York, NY",
@@ -26,7 +26,7 @@ users = User.create([
         username: "JJ",
         first_name: "Jeff",
         last_name: "Jiang",
-        profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UN7P9NS30-86a42d59c2d5-512",
+        # profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UN7P9NS30-86a42d59c2d5-512",
         email: "jeff@jeff.me",
         phone_number: "3130938121",
         location: "New York, NY",
@@ -42,13 +42,13 @@ users = User.create([
         username: "jonTan",
         first_name: "Jonathan",
         last_name: "Tan",
-        profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UMJDQMZ9T-f902c19893fb-512",
+        # profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UMJDQMZ9T-f902c19893fb-512",
         email: "jon@jon.me",
         phone_number: "3330138121",
         location: "New York, NY",
         birthday: "01/21/1995",
         gender: "Male",
-        bio: "My name is Jonathan Tan and my favorite sports include, but not limited by Soccer and Ice Hockey",
+        bio: "My name is Jonathan Tan and my favorite sports include, but not limited to Soccer and Ice Hockey",
         won_games: 0,
         tie_games: 0,
         lost_games: 0,
@@ -58,7 +58,7 @@ users = User.create([
         username: "MaryFarner",
         first_name: "Mary",
         last_name: "Farner",
-        profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UMZ5205R7-02bc68b81071-512",
+        # profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UMZ5205R7-02bc68b81071-512",
         email: "marry@gmail.com",
         phone_number: "3937438121",
         location: "New York, NY",
@@ -74,7 +74,7 @@ users = User.create([
         username: "cMeth",
         first_name: "Connor",
         last_name: "Meth",
-        profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UN5GYACUQ-g5184c1a6992-512",
+        # profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UN5GYACUQ-g5184c1a6992-512",
         email: "connor@connor.me",
         phone_number: "7143938121",
         location: "New York, NY",
@@ -90,6 +90,12 @@ users = User.create([
         admin: 0,
         password_digest: BCrypt::Password.create("123456")}
 ])
+
+User.first.profile_pic.attach(io: File.open("/Users/slavaP/Desktop/profile_pics/slava.png"),filename: "slava.png")
+User.second.profile_pic.attach(io: File.open("/Users/slavaP/Desktop/profile_pics/jeff.png"),filename: "jeff.png")
+User.third.profile_pic.attach(io: File.open("/Users/slavaP/Desktop/profile_pics/jon.jpeg"),filename: "jon.jpeg")
+User.fourth.profile_pic.attach(io: File.open("/Users/slavaP/Desktop/profile_pics/marry.jpeg"),filename: "marry.jpeg")
+User.last.profile_pic.attach(io: File.open("/Users/slavaP/Desktop/profile_pics/connor.png"),filename: "connor.png")
 
 activities = Activity.create([
     { name: 'Soccer', logo_path: "https://image.flaticon.com/icons/png/128/33/33736.png", number_of_members: 4, number_of_teams: 0 }, 
@@ -126,6 +132,7 @@ groups = Group.create([
         Family: You were raised by your mother and father.
         Lifestyle: Comfortable. Grew up in a large house
         Childhood: You had several friends, and your childhood was generally a happy one.",
+        admin_id: 1,
         activity_id: 1},
         {
         name: "Upper East Side Soccer Fans",
@@ -135,6 +142,7 @@ groups = Group.create([
         Family: You were raised by your mother and father.
         Lifestyle: Comfortable. Grew up in a large house
         Childhood: You had several friends, and your childhood was generally a happy one.",
+        admin_id: 1,
         activity_id: 1},
         {
         name: "Voleyball ♥️",
@@ -144,6 +152,7 @@ groups = Group.create([
         Family: You were raised by your mother and father.
         Lifestyle: Comfortable. Grew up in a large house
         Childhood: You had several friends, and your childhood was generally a happy one.",
+        admin_id: 1,
         activity_id: 2},
         {
         name: "Basketball 🏀",
@@ -153,6 +162,7 @@ groups = Group.create([
         Family: You were raised by your mother and father.
         Lifestyle: Comfortable. Grew up in a large house
         Childhood: You had several friends, and your childhood was generally a happy one.",
+        admin_id: 1,
         activity_id: 3},
         {
         name: "Random group",
@@ -162,5 +172,6 @@ groups = Group.create([
         Family: You were raised by your mother and father.
         Lifestyle: Comfortable. Grew up in a large house
         Childhood: You had several friends, and your childhood was generally a happy one.",
+        admin_id: 1,
         activity_id: 5}
 ])

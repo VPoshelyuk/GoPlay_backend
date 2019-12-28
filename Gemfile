@@ -26,7 +26,10 @@ gem 'jwt'
 
 gem 'fast_jsonapi'
 
-gem 'nexmo'
+# gem "azure-storage-blob", require: false
+gem "azure-storage", require: false
+
+gem "activestorage"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

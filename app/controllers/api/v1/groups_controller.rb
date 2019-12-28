@@ -6,24 +6,29 @@ class Api::V1::GroupsController < ApplicationController
 
     def show
         group = Group.find(params[:id])
-        render json: {group: GroupSerializer.new(group), token: token}
+        render json: {group: GroupSerializer.new(group)}
     end
 
     def create
         group = Group.create(group_params)
+        group[:logo_path] = url_for(group.g_logo)
         if group.save
-            render json: {group: GroupSerializer.new(group), token: token}, status: :accepted
+            render json: {group: GroupSerializer.new(group)}, status: :accepted
         else
             render json: { errors: group.errors.full_messages }, status: :unprocessible_entity
         end
     end
 
+    def my_groups
+        groups = Group.select{ |group| group.admin_id == params[:user_id]}
+        render json: {groups: GroupSerializer.new(groups)}
+    end
 
     def update
         group = Group.find(params[:id])
         group.update(group_params)
         if group.save
-            render json: {group: GroupSerializer.new(group), token: token}, status: :accepted
+            render json: {group: GroupSerializer.new(group)}, status: :accepted
         else
             render json: { errors: group.errors.full_messages }, status: :unprocessible_entity
         end
@@ -41,9 +46,10 @@ class Api::V1::GroupsController < ApplicationController
         params.permit(
             :name,
             :location,
-            :logo_path,
+            :g_logo,
             :description,
-            :activity_id
+            :activity_id,
+            :admin_id
         )
     end
 end
