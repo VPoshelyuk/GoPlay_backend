@@ -1,5 +1,6 @@
 class GroupSerializer
     include FastJsonapi::ObjectSerializer
-    attributes :id, :name, :location, :logo_path, :description, :activity, :teams
+    set_type :group
+    attributes :id, :name, :location, :description, :logo_path, :activity, :teams, :admin_id
   end
   

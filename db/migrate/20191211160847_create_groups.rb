@@ -5,6 +5,7 @@ class CreateGroups < ActiveRecord::Migration[6.0]
       t.string :location
       t.string :logo_path
       t.string :description
+      t.integer :admin_id
       t.integer :activity_id
 
       t.timestamps

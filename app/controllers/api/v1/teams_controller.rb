@@ -20,6 +20,10 @@ class Api::V1::TeamsController < ApplicationController
         render json: {teams: TeamSerializer.new(teams)}
     end
 
+    def my_teams
+        teams = Team.select { |team| team.users.find{ |user| user.id == params[:user_id]}}
+        render json: {teams: TeamSerializer.new(teams)}
+    end
 
     def update
         team = Team.find(params[:id])
