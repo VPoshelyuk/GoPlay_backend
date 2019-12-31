@@ -1,0 +1,2 @@
+# Ignore the environment-specific YAML files
+/config/env.*.yml

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_26_011126) do
+ActiveRecord::Schema.define(version: 2019_12_30_210826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,6 @@ ActiveRecord::Schema.define(version: 2019_12_26_011126) do
     t.string "logo_path"
     t.integer "number_of_members"
     t.integer "number_of_teams"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "events", force: :cascade do |t|
@@ -50,6 +48,10 @@ ActiveRecord::Schema.define(version: 2019_12_26_011126) do
     t.string "description"
     t.string "pic_path"
     t.integer "price"
+    t.datetime "time"
+    t.string "pretty_time"
+    t.integer "players_per_team"
+    t.integer "max_number_of_teams"
     t.integer "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -62,6 +64,13 @@ ActiveRecord::Schema.define(version: 2019_12_26_011126) do
     t.string "description"
     t.integer "admin_id"
     t.integer "activity_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "team_events", force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -91,6 +100,12 @@ ActiveRecord::Schema.define(version: 2019_12_26_011126) do
   create_table "user_activities", force: :cascade do |t|
     t.integer "user_id"
     t.integer "activity_id"
+  end
+
+  create_table "user_events", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.string "status", default: "Nope"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

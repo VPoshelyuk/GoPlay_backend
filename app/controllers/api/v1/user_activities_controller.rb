@@ -1,6 +1,6 @@
 class Api::V1::UserActivitiesController < ApplicationController
     def index
-        user_activities = UserActivity.all
+        user_activities = UserActivity.all.sort_by{|u_activity| u_activity.id}
         render json: {user_activities: user_activities}
     end
 
