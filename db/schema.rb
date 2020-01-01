@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_12_30_210826) do
     t.integer "price"
     t.datetime "time"
     t.string "pretty_time"
+    t.string "address"
     t.integer "players_per_team"
     t.integer "max_number_of_teams"
     t.integer "group_id"

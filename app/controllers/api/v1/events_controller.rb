@@ -71,6 +71,7 @@ class Api::V1::EventsController < ApplicationController
             :players_per_team,
             :max_number_of_teams,
             :description,
+            :address,
             :group_id,
             :groups_id
         )
