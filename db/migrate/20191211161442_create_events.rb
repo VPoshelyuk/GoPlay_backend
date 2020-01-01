@@ -5,6 +5,11 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :description
       t.string :pic_path
       t.integer :price
+      t.datetime :time
+      t.string :pretty_time
+      t.string :address
+      t.integer :players_per_team
+      t.integer :max_number_of_teams
       t.integer :group_id
 
       t.timestamps

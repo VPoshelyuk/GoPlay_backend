@@ -12,7 +12,23 @@ class Api::V1::TeamEventsController < ApplicationController
     def create
         team_event = TeamEvent.create(team_event_params)
         if team_event.save
-            render json: team_event, status: :accepted
+            team = Team.find(team_event[:team_id])
+            team.users.each do |user|
+                user_event = UserEvent.create(event_id: team_event[:event_id], user_id: user.id, status: "Nope")
+                # account_sid = ENV['TWILIO_ACCOUNT_SID']
+                # auth_token = ENV['TWILIO_AUTH_TOKEN']
+                # client = Twilio::REST::Client.new(account_sid, auth_token)
+
+                # from = '+14243101555' # Your Twilio number
+                # to = "+#{user.phone_number}" # Your mobile phone number
+
+                # client.messages.create(
+                # from: from,
+                # to: to,
+                # body: "#{team.admin.username},admin at #{team.name}, just signed your team up for event happening on #{Event.find(team_event[:event_id]).time.in_time_zone("Eastern Time (US & Canada)").strftime("%Y/%m/%d at %I:%M %p")} stoopid!"
+                # )
+            end
+            render json: team_event
         else
             render json: { errors: team_event.errors.full_messages }, status: :unprocessible_entity
         end

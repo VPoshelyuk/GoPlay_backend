@@ -5,6 +5,8 @@ class User < ApplicationRecord
     has_secure_password
     has_many :user_teams
     has_many :teams, through: :user_teams
+    has_many :user_events
+    has_many :events, through: :user_events
     has_one :administered_team, :class_name => "Team", :foreign_key => "admin_id"
     has_one :administered_group, :class_name => "Group", :foreign_key => "admin_id"
     has_many :user_activities

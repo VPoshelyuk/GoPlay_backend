@@ -5,8 +5,6 @@ class CreateActivities < ActiveRecord::Migration[6.0]
       t.string :logo_path
       t.integer :number_of_members
       t.integer :number_of_teams
-
-      t.timestamps
     end
   end
 end

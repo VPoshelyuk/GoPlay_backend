@@ -6,6 +6,7 @@ class Api::V1::TeamsController < ApplicationController
 
     def create
         team = Team.create(team_params)
+        team[:logo_path] = url_for(team.logo)
         activity = Activity.find(params[:activity_id])
             activity.update(number_of_teams: activity.number_of_teams+1)
         if team.save
@@ -49,6 +50,7 @@ class Api::V1::TeamsController < ApplicationController
             :location,
             :number_of_members,
             :logo_path,
+            :logo,
             :description,
             :won_games,
             :tie_games,

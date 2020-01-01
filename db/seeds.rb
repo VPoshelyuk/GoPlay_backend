@@ -12,7 +12,7 @@ users = User.create([
         last_name: "Pashaliuk",
         # profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UNBUFCFEH-d881e5172e1e-512",
         email: "slava@slava.me",
-        phone_number: "9293098458",
+        phone_number: "19293098458",
         location: "New York, NY",
         birthday: "01/01/1998",
         gender: "Male",
@@ -28,7 +28,7 @@ users = User.create([
         last_name: "Jiang",
         # profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UN7P9NS30-86a42d59c2d5-512",
         email: "jeff@jeff.me",
-        phone_number: "3130938121",
+        phone_number: "13130938121",
         location: "New York, NY",
         birthday: "01/21/1997",
         gender: "Male",
@@ -44,7 +44,7 @@ users = User.create([
         last_name: "Tan",
         # profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UMJDQMZ9T-f902c19893fb-512",
         email: "jon@jon.me",
-        phone_number: "3330138121",
+        phone_number: "13330138121",
         location: "New York, NY",
         birthday: "01/21/1995",
         gender: "Male",
@@ -60,7 +60,7 @@ users = User.create([
         last_name: "Farner",
         # profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UMZ5205R7-02bc68b81071-512",
         email: "marry@gmail.com",
-        phone_number: "3937438121",
+        phone_number: "13937438121",
         location: "New York, NY",
         birthday: "01/21/1995",
         gender: "Female",
@@ -76,7 +76,7 @@ users = User.create([
         last_name: "Meth",
         # profile_pic: "https://ca.slack-edge.com/T02MD9XTF-UN5GYACUQ-g5184c1a6992-512",
         email: "connor@connor.me",
-        phone_number: "7143938121",
+        phone_number: "17143938121",
         location: "New York, NY",
         birthday: "05/13/1995",
         gender: "Male",
@@ -152,7 +152,7 @@ groups = Group.create([
         Family: You were raised by your mother and father.
         Lifestyle: Comfortable. Grew up in a large house
         Childhood: You had several friends, and your childhood was generally a happy one.",
-        admin_id: 1,
+        admin_id: 5,
         activity_id: 2},
         {
         name: "Basketball 🏀",
@@ -162,7 +162,7 @@ groups = Group.create([
         Family: You were raised by your mother and father.
         Lifestyle: Comfortable. Grew up in a large house
         Childhood: You had several friends, and your childhood was generally a happy one.",
-        admin_id: 1,
+        admin_id: 2,
         activity_id: 3},
         {
         name: "Random group",
@@ -172,6 +172,6 @@ groups = Group.create([
         Family: You were raised by your mother and father.
         Lifestyle: Comfortable. Grew up in a large house
         Childhood: You had several friends, and your childhood was generally a happy one.",
-        admin_id: 1,
+        admin_id: 4,
         activity_id: 5}
 ])
