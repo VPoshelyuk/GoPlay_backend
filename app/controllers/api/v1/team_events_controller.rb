@@ -44,10 +44,22 @@ class Api::V1::TeamEventsController < ApplicationController
         end
     end
 
+    def delete_by_team_event_ids
+        team_event = TeamEvent.find_by(team_id:params[:team_id], event_id:params[:event_id])
+        id = team_event[:team_id]
+        team_event.destroy
+        team = Team.find(id)
+            team.users.each do |user|
+                user_event = UserEvent.find_by(event_id: team_event[:event_id], user_id: user.id)
+                user_event.delete
+            end
+        render json: {attn: "Successfully deleted!"}
+    end
+
     def destroy
         team_event = TeamEvent.find(params[:id])
         team_event.destroy
-        render json: "Successfully deleted!"
+        render json: {attn: "Successfully deleted!"}
     end
 
     private

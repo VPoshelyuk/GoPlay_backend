@@ -12,6 +12,7 @@ class Api::V1::UsersController < ApplicationController
 
     def create
         user = User.create(user_params)
+        user[:profile_pic_path] = url_for(user.profile_pic)
         if user.save
             token = encode_token(user.id)
             render json: {user: UserSerializer.new(user), token: token}, status: :accepted
@@ -46,6 +47,7 @@ class Api::V1::UsersController < ApplicationController
             :first_name,
             :last_name,
             :profile_pic,
+            :profile_pic_path,
             :email,
             :phone_number,
             :location,

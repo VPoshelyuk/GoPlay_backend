@@ -1,6 +1,6 @@
 class Api::V1::EventsController < ApplicationController
     def index
-        events = Event.all
+        events = Event.order(:time)
         render json: {events: EventSerializer.new(events)}
     end
 
@@ -14,6 +14,9 @@ class Api::V1::EventsController < ApplicationController
         params[:groups_id].split(",").each do |group_id|
             events += Event.select { |event| event.group_id == group_id.to_i && (event.users.length == 0 || !event.users.find(params[:user_id])) && event.time > DateTime.now.utc}
         end
+        events.sort_by! do |event|
+            event[:time]
+        end
         render json: {events: EventSerializer.new(events)}
     end
 
@@ -22,6 +25,9 @@ class Api::V1::EventsController < ApplicationController
         params[:groups_id].split(",").each do |group_id|
             events += Event.select { |event| event.group_id == group_id.to_i && (event.users.length == 0 || !event.users.find(params[:user_id])) && event.time <= DateTime.now.utc}
         end
+        events.sort_by! do |event|
+            event[:time]
+        end
         render json: {events: EventSerializer.new(events)}
     end
 
@@ -29,6 +35,9 @@ class Api::V1::EventsController < ApplicationController
         events = []
         params[:groups_id].split(",").each do |group_id|
             events += Event.select { |event| event.group_id == group_id.to_i && event.users.length != 0 && event.users.find(params[:user_id])}
+        end
+        events.sort_by! do |event|
+            event[:time]
         end
         render json: {events: EventSerializer.new(events)}
     end

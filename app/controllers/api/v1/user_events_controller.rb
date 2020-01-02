@@ -15,7 +15,7 @@ class Api::V1::UserEventsController < ApplicationController
     end
 
     def create
-        user_event = UserEvent.create(user_event_params)
+        user_event = UserEvent.create(user_events_params)
         if user_event.save
             render json: user_event
         else

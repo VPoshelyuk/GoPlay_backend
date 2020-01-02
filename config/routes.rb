@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       post "/available_events", to: "events#available_events"
       post "/past_events", to: "events#past_events"
       post "/status_check", to: "user_events#status_check"
+      delete "/delete_by_team_event_ids", to: "team_events#delete_by_team_event_ids"
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
