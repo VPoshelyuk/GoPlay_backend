@@ -139,7 +139,7 @@ groups = Group.create([
         admin_id: 1,
         activity_id: 1},
         {
-        name: "Voleyball ♥️",
+        name: "Volleyball ♥️",
         location: "Miami, FL",
         logo_path: "https://coloradopreps.com/wp-content/uploads/2018/10/Volleyball-Logo-5.jpg",
         description: "Siblings: None
