@@ -15,18 +15,18 @@ class Api::V1::TeamEventsController < ApplicationController
             team = Team.find(team_event[:team_id])
             team.users.each do |user|
                 user_event = UserEvent.create(event_id: team_event[:event_id], user_id: user.id, status: "Nope")
-                # account_sid = ENV['TWILIO_ACCOUNT_SID']
-                # auth_token = ENV['TWILIO_AUTH_TOKEN']
-                # client = Twilio::REST::Client.new(account_sid, auth_token)
+                account_sid = ENV['TWILIO_ACCOUNT_SID']
+                auth_token = ENV['TWILIO_AUTH_TOKEN']
+                client = Twilio::REST::Client.new(account_sid, auth_token)
 
-                # from = '+14243101555' # Your Twilio number
-                # to = "+#{user.phone_number}" # Your mobile phone number
+                from = '+14243101555' # Your Twilio number
+                to = "+#{user.phone_number}" # Your mobile phone number
 
-                # client.messages.create(
-                # from: from,
-                # to: to,
-                # body: "#{team.admin.username},admin at #{team.name}, just signed your team up for event happening on #{Event.find(team_event[:event_id]).time.in_time_zone("Eastern Time (US & Canada)").strftime("%Y/%m/%d at %I:%M %p")} stoopid!"
-                # )
+                client.messages.create(
+                from: from,
+                to: to,
+                body: "New event was added for your team #{team.name} happening on #{Event.find(team_event[:event_id]).time.in_time_zone("Eastern Time (US & Canada)").strftime("%Y/%m/%d at %I:%M %p")}!"
+                )
             end
             render json: team_event
         else
@@ -52,6 +52,17 @@ class Api::V1::TeamEventsController < ApplicationController
             team.users.each do |user|
                 user_event = UserEvent.find_by(event_id: team_event[:event_id], user_id: user.id)
                 user_event.delete
+                account_sid = ENV['TWILIO_ACCOUNT_SID']
+                auth_token = ENV['TWILIO_AUTH_TOKEN']
+                client = Twilio::REST::Client.new(account_sid, auth_token)
+
+                from = '+14243101555' # Your Twilio number
+                to = "+#{user.phone_number}" # Your mobile phone number
+
+                client.messages.create(
+                from: from,
+                to: to,
+                body: "One of the events at #{team.name} was cancelled,check out which one!")
             end
         render json: {attn: "Successfully deleted!"}
     end

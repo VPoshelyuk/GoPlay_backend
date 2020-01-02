@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_one_attached :profile_pic
     validates :username, uniqueness: true
-    validates_presence_of :password, :on => :create
+    # validates_presence_of :password, :on => :create
     has_secure_password
     has_many :user_teams
     has_many :teams, through: :user_teams
