@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 2019_12_30_210826) do
     t.string "last_name"
     t.string "email"
     t.string "phone_number"
+    t.string "profile_pic_path"
     t.string "location"
     t.string "birthday"
     t.string "gender"
